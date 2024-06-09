@@ -2,6 +2,7 @@ import { uid } from "uid";
 import AddCircle from "../AddCircle/AddCircle";
 import "./ListsOverview.css";
 import { useState } from "react";
+import CreateListForm from "../CreateListForm/CreateListForm";
 
 export default function ListsOverview() {
   const [isCreating, setIsCreating] = useState(false);
@@ -14,33 +15,21 @@ export default function ListsOverview() {
     return setIsCreating(true);
   }
 
-  function handleCreateListSubmit(event) {
-    event.preventDefault();
-    const newListName = event.target.elements.createListInput.value;
-
-    const newList = {
-      key: uid(),
-      name: newListName,
-    };
+  function handleSetList(newList) {
     setLists([newList, ...lists]);
-    setIsCreating(false);
+  }
+
+  function handleSetIsCreating() {
+    setIsCreating(!isCreating);
   }
 
   if (isCreating) {
     return (
-      <section className="listOverview">
-        <form onSubmit={handleCreateListSubmit}>
-          <label htmlFor="createListInput"></label>
-          <input
-            autoFocus
-            type="text"
-            name="createListInput"
-            id="createListInput"
-            required
-          ></input>
-          <button type="submit">Erstelle neue Liste</button>
-        </form>
-      </section>
+      <CreateListForm
+        lists={lists}
+        onSetIsCreating={handleSetIsCreating}
+        onSetList={handleSetList}
+      />
     );
   }
 
