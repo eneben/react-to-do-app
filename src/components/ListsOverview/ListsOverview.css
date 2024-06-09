@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.buttonAddCircle {
+  border-style: none;
+  font-size: 16px;
+  color: #282c34;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: transparent;
+}
+
+.listOfLists {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0px auto;
+  padding: 50px 0;
+  font-size: 20px;
+  color: #282c34;
+}
