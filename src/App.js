@@ -1,13 +1,17 @@
 import "./App.css";
+import ListsOverview from "./components/ListsOverview/ListsOverview";
 
 export default function App() {
   return (
     <div className="App">
       <header className="header">
         <h1>Pläneschmiede</h1>
-        <p>Eine kleine To-do-App. Check, check, hurra!</p>
+        <br />
+        <p>Eine kleine Listen-App. Check, check, hurra!</p>
       </header>
-      <main className="main"></main>
+      <main className="main">
+        <ListsOverview />
+      </main>
     </div>
   );
 }
